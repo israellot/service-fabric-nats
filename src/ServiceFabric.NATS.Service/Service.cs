@@ -1,25 +1,17 @@
-﻿using System;
+﻿using Microsoft.ServiceFabric.Services.Client;
+using Microsoft.ServiceFabric.Services.Communication.Runtime;
+using Microsoft.ServiceFabric.Services.Runtime;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Fabric;
 using System.Fabric.Description;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.ApplicationInsights;
-using Microsoft.ApplicationInsights.AspNetCore.Extensions;
-using Microsoft.ApplicationInsights.Extensibility;
-using Microsoft.ApplicationInsights.ServiceFabric;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.ServiceFabric.Services.Client;
-using Microsoft.ServiceFabric.Services.Communication.Runtime;
-using Microsoft.ServiceFabric.Services.Runtime;
-using Newtonsoft.Json;
 
 
 namespace ServiceFabric.NATS
@@ -227,7 +219,6 @@ namespace ServiceFabric.NATS
             var serviceName = new Uri($"{Context.ServiceName}");
 
             var resolver = ServicePartitionResolver.GetDefault();
-            var fabricClient = new FabricClient();
 
             var resolved = await resolver.ResolveAsync(serviceName, ServicePartitionKey.Singleton, CancellationToken.None);
 

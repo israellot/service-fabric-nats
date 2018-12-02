@@ -1,13 +1,4 @@
-﻿using Microsoft.ServiceFabric.Services.Client;
-using Microsoft.ServiceFabric.Services.Communication.Runtime;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Fabric;
-using System.Fabric.Health;
-using System.IO;
-using System.Linq;
+﻿using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using System.Threading;
 using System.Threading.Tasks;
 
