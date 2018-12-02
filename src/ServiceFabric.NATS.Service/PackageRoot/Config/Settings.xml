@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <!-- Add your custom configuration sections and parameters here -->
+  
+  <Section Name="NATS">
+    
+    <Parameter Name="NATS_SERVER_AUTH_USER" Value="nats_user"/>
+    <Parameter Name="NATS_SERVER_AUTH_PASSWORD" Value="notasecret"/>
+
+    <Parameter Name="NATS_CLUSTER_ROUTE_USER" Value="route_user"/>
+    <Parameter Name="NATS_CLUSTER_ROUTE_PASSWORD" Value="notasecret"/>
+
+  </Section>
+  
+</Settings>
