@@ -151,8 +151,9 @@ namespace ServiceFabric.NATS
             processStart.EnvironmentVariables.Add("NATS_DOCKERIZED", "1");
             processStart.Arguments = $"-c {configFilePath}";
             processStart.UseShellExecute = false;
-            processStart.CreateNoWindow = true;
+            //processStart.CreateNoWindow = true;
             processStart.RedirectStandardOutput = true;
+            processStart.RedirectStandardInput = true;
             processStart.WorkingDirectory = Directory.GetCurrentDirectory();
 
             //set log
@@ -203,12 +204,16 @@ namespace ServiceFabric.NATS
                     if (cancellationToken.IsCancellationRequested)
                     {
                         //runtime requests us to stop
-                        //kill NATS and exit
-                        try { process?.Kill(); process = null; } catch { }
+
                         break;
                     }
                 }
             }
+
+            //kill nats process
+            //force kill it not exited yet
+            if (!process.HasExited)
+                try { process?.Kill(); process = null; } catch { }
         }
 
         
